@@ -1,0 +1,13 @@
+using UnityEngine;
+ using System.Collections;
+ 
+ public class collisionpill : MonoBehaviour {
+ 
+     public Color mycolor;
+ 
+ 
+     void OnCollisionEnter(Collision other) {
+         if (other.transform.tag == "Pill") {
+              gameObject.GetComponent<Renderer> ().material.color = mycolor;
+         }
+     }
