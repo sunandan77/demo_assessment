@@ -1,0 +1,12 @@
+void colour_change()
+    {
+         int index = Random.Range(0, 1);
+    if(index == 1)
+    {
+        quad.gameObject.GetComponent<Renderer>().material.color = new Color(1, 0, 0);
+    }
+    else
+    {
+        quad.gameObject.GetComponent<Renderer>().material.color = new Color(0, 1, 0);
+    }
+    }
