@@ -1,0 +1,32 @@
+void Update () {
+ 
+        if (waitspawn)
+        {
+            if (Physics.OverlapSphere(currentWaitingPoint, 0.3f).Length == 0)
+            {
+                Instantiate(Skelly, currentWaitingPoint, Quaternion.identity);
+                waitspawn = false;
+                currentWaitingPoint = Vector3.zero;
+            }
+            else
+            {
+                Debug.Log(currentWaitingPoint);
+                currentWaitingPoint.x += Mathf.Cos(Time.time);
+                currentWaitingPoint.z += Mathf.Sin(Time.time);
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                if (Physics.OverlapSphere(transform.position, 0.3f).Length == 0)
+                    Instantiate(Skelly, transform.position, Quaternion.identity);
+                else
+                {
+                    waitspawn = true;
+                    currentWaitingPoint = transform.position;
+                }
+            }
+        }
+    }
+}
